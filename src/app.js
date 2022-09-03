@@ -9,7 +9,7 @@ const forecast = require('./utils/forecast')
 // console.log(path.join(__dirname,'..', 'public'))
 
 const app = express()   //app has now all the methods
-
+const port = process.env.PORT || 3000       //setting or for heroku or local
 
 
 //Define paths for express config
@@ -107,6 +107,6 @@ app.get('*', (req, res)=>{
 })
 
 
-app.listen(3000, ()=> {         //also accepts callback
-    console.log('Server is up on port 3000')
+app.listen(port, ()=> {         //also accepts callback //for heroku change this value, provided through environment variable by Heroku
+    console.log(`Server is up on port ${port}`)
 })
